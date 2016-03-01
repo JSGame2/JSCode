@@ -1,3 +1,5 @@
+/* works with the player class (or whatever js calls it) */
+
 // this function acts like a class
 // you can say var p1 = new Player(parameters); to create a new "instance" of it
 function player(x, y, width, height, xSpeed, ySpeed) {
