@@ -5,6 +5,16 @@ var ctx;
 var WIDTH = 800;
 var HEIGHT = 600;
 
+var p1 = new player(100, 100);
+var p2 = new player(400, 400);
+
+function player(x, y) {
+    this.x = x;
+    this.y = y;
+    this.xSpeed = 3;
+    this.ySpeed = 3;
+}
+
 function clear() {
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 }
@@ -23,6 +33,10 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.strokeStyle = "black";
     rect(0,0,WIDTH,HEIGHT);
+
+    ctx.fillStyle = "black";
+    rect(p1.x, p1.y, 50, 50);
+    rect(p2.x, p2.y, 50, 50);
 }
 
 // Important starting function
