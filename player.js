@@ -19,21 +19,25 @@ function player(x, y, width, height, xSpeed, ySpeed) {
 // the four methods below will move any player in the mentioned direction by their speed * the interval
 player.prototype.right = function(repeats) {
     this.x += this.xSpeed * repeats;
+    this.checkWall();
 }
 
 player.prototype.left = function(repeats) {
     this.x -= this.xSpeed * repeats;
+    this.checkWall();
 }
 
 player.prototype.down = function(repeats) {
     this.y += this.ySpeed * repeats;
+    this.checkWall();
 }
 
 player.prototype.up = function(repeats) {
     this.y -= this.ySpeed * repeats;
+    this.checkWall();
 }
 
 // create two new players
 // the players start in different positions, but are the same width and height, and have the same speed
-var p1 = new player(100, 100, 25, 25, 10, 10);
-var p2 = new player(400, 400, 25, 25, 10, 10);
+var p1 = new player(50, 100, 20, 20, 10, 10);
+var p2 = new player(400, 400, 20, 20, 10, 10);

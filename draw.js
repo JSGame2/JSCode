@@ -35,13 +35,16 @@ function draw() {
     drawRect(0,0,WIDTH,HEIGHT);
 
     // draw the walls from the board
-    ctx.fillStyle = "blue";
-    ctx.strokeStyle = "blue";
+    ctx.fillStyle = "black";
+    ctx.strokeStyle = "black";
     drawBoard();
 
     // draw the two players as black rectangles
-    ctx.strokeStyle = "black";
-    ctx.fillStyle = "black";
+    ctx.strokeStyle = "red";
+    ctx.fillStyle = "red";
     drawRect(p1.x, p1.y, p1.width, p1.height);
+
+    ctx.strokeStyle = "green";
+    ctx.fillStyle = "green";
     drawRect(p2.x, p2.y, p2.height, p2.height);
 }
