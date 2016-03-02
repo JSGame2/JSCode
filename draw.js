@@ -39,10 +39,15 @@ function draw() {
     ctx.strokeStyle = "black";
     drawBoard();
 
-    // draw the two players as black rectangles
-    ctx.strokeStyle = "red";
-    ctx.fillStyle = "red";
-    drawRect(p1.x, p1.y, p1.width, p1.height);
+    // p1 image
+    var p1Ready = false;
+    var p1Image = new Image();
+    p1Image.onload = function () {
+      p1Ready = true;
+    };
+    p1Image.src = "Icons/hero_01.png";
+
+      ctx.drawImage(p1Image, p1.x, p1.y);
 
     ctx.strokeStyle = "green";
     ctx.fillStyle = "green";
