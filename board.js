@@ -23,6 +23,8 @@ function newBoard() {
 
     addRow(board1, 12, 10, 25);
     addCol(board1, 50, 30, 8);
+    addCol(board1, 8, 30, 8);
+    addCol(board1, 34, 30, 8);
 
     return board1;
 }

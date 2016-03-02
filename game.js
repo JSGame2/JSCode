@@ -6,6 +6,7 @@ var WIDTH = 800;
 var HEIGHT = 500;
 var square = 10;
 var board = newBoard();
+var keysDown = [];
 
 // Important starting function
 function init() {
@@ -19,3 +20,4 @@ function init() {
 // Main part of program
 init();
 window.addEventListener('keydown', move, true);
+window.addEventListener('keyup', release, true);
