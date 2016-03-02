@@ -30,4 +30,7 @@ function move(evt) {
             p2.up(1);
             break;
     }
+
+    p1.checkWall();
+    p2.checkWall();
 }
