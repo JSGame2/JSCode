@@ -21,9 +21,15 @@ player.prototype.up = function(repeats) {
     this.checkWall();
 }
 
-function move(evt) {
+function keyPressed(evt) {
     keysDown[evt.keyCode] = true;
+}
 
+function release(evt) {
+    keysDown[evt.keyCode] = false;
+}
+
+function move() {
     // check movement for p1
     if (keysDown[68]) { // D key was pressed
         p1.canMove_right();
@@ -45,8 +51,4 @@ function move(evt) {
     } if (keysDown[38]) { // up arrow was pressed
         p2.canMove_up();
     }
-}
-
-function release(evt) {
-    keysDown[evt.keyCode] = false;
 }

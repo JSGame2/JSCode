@@ -14,10 +14,10 @@ function init() {
     ctx = canvas.getContext("2d");
 
     // run the draw method every 10 seconds
-    return setInterval(draw, 2);
+    return setInterval(draw, 10);
 }
 
 // Main part of program
 init();
-window.addEventListener('keydown', move, true);
+window.addEventListener('keydown', keyPressed, true);
 window.addEventListener('keyup', release, true);

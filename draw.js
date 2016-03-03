@@ -36,6 +36,9 @@ player.prototype.drawImg = function() {
 
 // the main draw function
 function draw() {
+    // make the characters move
+    move()
+
     // clear the screen
     clear();
 
