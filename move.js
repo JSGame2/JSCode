@@ -1,5 +1,26 @@
 /* This file is where the movement is created for the players */
 
+// the four methods below will move any player in the mentioned direction by their speed * the interval
+player.prototype.right = function(repeats) {
+    this.x += this.xSpeed * repeats;
+    this.checkWall();
+}
+
+player.prototype.left = function(repeats) {
+    this.x -= this.xSpeed * repeats;
+    this.checkWall();
+}
+
+player.prototype.down = function(repeats) {
+    this.y += this.ySpeed * repeats;
+    this.checkWall();
+}
+
+player.prototype.up = function(repeats) {
+    this.y -= this.ySpeed * repeats;
+    this.checkWall();
+}
+
 function move(evt) {
     keysDown[evt.keyCode] = true;
 

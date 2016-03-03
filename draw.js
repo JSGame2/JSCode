@@ -24,6 +24,16 @@ function drawBoard() {
     }
 }
 
+player.prototype.drawImg = function() {
+    var ready = false;
+    var image = new Image();
+    image.onload = function () {
+      ready = true;
+    };
+    image.src = this.imgSrc;
+    ctx.drawImage(image, this.x, this.y, this.width, this.height);
+}
+
 // the main draw function
 function draw() {
     // clear the screen
@@ -39,17 +49,9 @@ function draw() {
     ctx.strokeStyle = "black";
     drawBoard();
 
-    // p1 image
-    var p1Ready = false;
-    var p1Image = new Image();
-    p1Image.onload = function () {
-      p1Ready = true;
-    };
-    p1Image.src = "Icons/hero_01.png";
-    ctx.drawImage(p1Image, p1.x, p1.y, p1.width, p1.height);
+    // draw p1's image
+    p1.drawImg();
 
-    // draw p2
-    ctx.strokeStyle = "green";
-    ctx.fillStyle = "green";
-    drawRect(p2.x, p2.y, p2.height, p2.height);
+    // draw p2's image
+    p2.drawImg();
 }
