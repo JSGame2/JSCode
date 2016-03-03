@@ -14,7 +14,7 @@ function init() {
     ctx = canvas.getContext("2d");
 
     // run the draw method every 10 seconds
-    return setInterval(draw, 10);
+    return setInterval(draw, 2);
 }
 
 // Main part of program

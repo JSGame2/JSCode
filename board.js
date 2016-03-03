@@ -41,9 +41,11 @@ function newBoard() {
     removeCol(board1, 0, (HEIGHT / 2 / square) - 11, 20);
     removeCol(board1, WIDTH / square - 1, (HEIGHT / 2 / square) - 11 , 20);
 
+    removeRow(board1, 59, 0, 20);
+    removeRow(board1, 59, 99, 20);
+
     // draw the target box
     addRow(board1, 69, 39, 20);
-    addCol(board1, 69, 39, 37);
     addCol(board1, 89, 39, 20);
 
     // block the gaps in the edges, sort of
@@ -64,7 +66,7 @@ function newBoard() {
     addCol(board1, 113, 45, 30);
     addRow(board1, 95, 10, 50);
     addCol(board1, 85, 0, 22);
-    addRow(board1, 85, 21, 50);
+    addRow(board1, 95, 21, 40);
     addCol(board1, 134, 21, 55);
     addCol(board1, 58, 0, 59);
     addRow(board1, 58, 58, 12);
