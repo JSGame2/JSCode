@@ -49,6 +49,15 @@ function draw() {
     ctx.strokeStyle = "black";
     drawBoard();
 
+    // draw the target
+    var targetReady = false;
+    var targetImage = new Image();
+    targetImage.onload = function () {
+      targetReady = true;
+    };
+    targetImage.src = "Icons/target.png";
+    ctx.drawImage(targetImage, 360, 210, 75, 75);
+
     // draw p1's image
     p1.drawImg();
 

@@ -4,7 +4,7 @@ var canvas;
 var ctx;
 var WIDTH = 800;
 var HEIGHT = 500;
-var square = 10;
+var square = 5;
 var board = newBoard();
 var keysDown = [];
 
