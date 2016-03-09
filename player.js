@@ -18,8 +18,3 @@ function player(x, y, width, height, xSpeed, ySpeed, imgSrc) {
     // set the image source
     this.imgSrc = imgSrc;
 }
-
-// create two new players
-// the players start in different positions, but are the same width and height, and have the same speed
-var p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
-var p2 = new player(380, 230, 30, 30, 5, 5, "Icons/Darth-Vader-icon.png");

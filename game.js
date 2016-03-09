@@ -9,8 +9,22 @@ var board = newBoard();
 var keysDown = [];
 var gameOn = true;
 
+var p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
+var p2 = new player(380, 230, 30, 30, 5, 5, "Icons/Darth-Vader-icon.png");
+var target = new player(360, 210, 75, 75, 0, 0, "Icons/target.png");
+
+function restart() {
+    // create two new players
+    // the players start in different positions, but are the same width and height, and have the same speed
+    p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
+    p2 = new player(380, 230, 30, 30, 5, 5, "Icons/Darth-Vader-icon.png");
+    target = new player(360, 210, 75, 75, 0, 0, "Icons/target.png");
+    gameOn = true;
+}
+
 // Important starting function
 function init() {
+    restart();
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 

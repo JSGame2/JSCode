@@ -52,3 +52,10 @@ function move() {
         p2.canMove_up();
     }
 }
+
+function gameOffKeys() {
+    // check if they press the space key
+    if (keysDown[32]) {
+        restart();
+    }
+}

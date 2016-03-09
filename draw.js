@@ -35,12 +35,14 @@ player.prototype.drawImg = function() {
 }
 
 function drawHomePage() {
-
+    gameOffKeys();
 }
 
 function drawGame() {
     // make the characters move
     move()
+    p1.collides(p2);
+    p1.collides(target);
 
     // draw the walls from the board
     ctx.fillStyle = "black";
