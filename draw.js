@@ -34,18 +34,13 @@ player.prototype.drawImg = function() {
     ctx.drawImage(image, this.x, this.y, this.width, this.height);
 }
 
-// the main draw function
-function draw() {
+function drawHomePage() {
+
+}
+
+function drawGame() {
     // make the characters move
     move()
-
-    // clear the screen
-    clear();
-
-    // draw the surrounding rectangle
-    ctx.fillStyle = "white";
-    ctx.strokeStyle = "black";
-    drawRect(0,0,WIDTH,HEIGHT);
 
     // draw the walls from the board
     ctx.fillStyle = "black";
@@ -66,4 +61,22 @@ function draw() {
 
     // draw p2's image
     p2.drawImg();
+}
+
+// the main draw function
+function draw() {
+
+    // clear the screen
+    clear();
+
+    // draw the surrounding rectangle
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    drawRect(0,0,WIDTH,HEIGHT);
+
+    if (gameOn == false) {
+        drawHomePage();
+    } else {
+        drawGame();
+    }
 }

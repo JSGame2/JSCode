@@ -25,7 +25,7 @@ function keyPressed(evt) {
     keysDown[evt.keyCode] = true;
 }
 
-function release(evt) {
+function keyReleased(evt) {
     keysDown[evt.keyCode] = false;
 }
 
