@@ -8,6 +8,7 @@ var square = 5;
 var board = newBoard();
 var keysDown = [];
 var mousePos = {"x":0, "y":0};
+var restartButton = {"x":100, "y":150, "width":600, "height":200};
 var gameOn = true;
 
 var p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");

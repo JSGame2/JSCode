@@ -44,7 +44,6 @@ player.prototype.drawImg = function() {
 function drawHomePage() {
     gameOffKeys();
 
-    var restartButton = {"x":100, "y":150, "width":600, "height":200};
     ctx.strokeStyle = "rgb(0, 0, 0)";
     for (var x=restartButton.x; x<restartButton.x + restartButton.width; x+=5) {
         drawRect(x, restartButton.y, 5, 5);
@@ -67,14 +66,14 @@ function drawGame() {
     drawBoard();
 
     // draw the target
-    ctx.strokeStyle = "rgb(0,0,255)";
-    ctx.fillStyle = "rgb(0,0,255)";
+    ctx.strokeStyle = "rgb(75,75,205)";
+    ctx.fillStyle = "rgb(75,75,205)";
     drawCircle(target.x, target.y, target.height, target.width);
     ctx.strokeStyle = "rgb(50, 54, 62)";
     ctx.fillStyle = "rgb(50, 54, 62)";
     drawCircle(target.x + target.width/9, target.y + target.height/9, target.height*7/9, target.width*7/9);
-    ctx.strokeStyle = "rgb(255, 0, 0)";
-    ctx.fillStyle = "rgb(255, 0, 0)";
+    ctx.strokeStyle = "rgb(205, 75, 75)";
+    ctx.fillStyle = "rgb(205, 75, 75)";
     drawCircle(target.x + target.width*2/9, target.y + target.height*2/9, target.height*5/9, target.width*5/9);
     ctx.strokeStyle = "rgb(50, 54, 62)";
     ctx.fillStyle = "rgb(50, 54, 62)";
