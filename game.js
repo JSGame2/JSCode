@@ -7,6 +7,7 @@ var HEIGHT = 500;
 var square = 5;
 var board = newBoard();
 var keysDown = [];
+var mousePos = {"x":0, "y":0};
 var gameOn = true;
 
 var p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
@@ -19,7 +20,7 @@ function restart() {
     p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
     p2 = new player(380, 230, 30, 30, 5, 5, "Icons/Darth-Vader-icon.png");
     target = new player(360, 210, 75, 75, 0, 0, "none");
-    gameOn = true;
+    gameOn = !gameOn;
 }
 
 // Important starting function
@@ -36,3 +37,5 @@ function init() {
 init();
 window.addEventListener('keydown', keyPressed, true);
 window.addEventListener('keyup', keyReleased, true);
+window.addEventListener('mousemove', mouseMoved, true);
+window.addEventListener('mousedown', mousePressed, true);

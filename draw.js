@@ -43,6 +43,17 @@ player.prototype.drawImg = function() {
 
 function drawHomePage() {
     gameOffKeys();
+
+    var restartButton = {"x":100, "y":150, "width":600, "height":200};
+    ctx.strokeStyle = "rgb(0, 0, 0)";
+    for (var x=restartButton.x; x<restartButton.x + restartButton.width; x+=5) {
+        drawRect(x, restartButton.y, 5, 5);
+        drawRect(x, restartButton.y + restartButton.height, 5, 5);
+    }
+    for (var y=restartButton.y; y<restartButton.y + restartButton.height; y+=5) {
+        drawRect(restartButton.x, y, 5, 5);
+        drawRect(restartButton.x + restartButton.width, y, 5, 5);
+    }
 }
 
 function drawGame() {
