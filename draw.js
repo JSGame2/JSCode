@@ -14,6 +14,13 @@ function drawRect(x,y,w,h) {
     ctx.stroke();
 }
 
+function drawCircle(x,y,w,h) {
+    ctx.beginPath();
+    ctx.arc(x + w/2, y + h/2, w/2, h/2, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+}
+
 function drawBoard() {
     for (var i = 0; i < board.length; i ++) {
         for (var j = 0; j < board[i].length; j ++) {
@@ -45,18 +52,22 @@ function drawGame() {
     p1.collides(target);
 
     // draw the walls from the board
-    ctx.fillStyle = "black";
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "rgb(0, 0, 0)";
     drawBoard();
 
     // draw the target
-    var targetReady = false;
-    var targetImage = new Image();
-    targetImage.onload = function () {
-      targetReady = true;
-    };
-    targetImage.src = "Icons/target.png";
-    ctx.drawImage(targetImage, 360, 210, 75, 75);
+    ctx.strokeStyle = "rgb(0,0,255)";
+    ctx.fillStyle = "rgb(0,0,255)";
+    drawCircle(target.x, target.y, target.height, target.width);
+    ctx.strokeStyle = "rgb(50, 54, 62)";
+    ctx.fillStyle = "rgb(50, 54, 62)";
+    drawCircle(target.x + target.width/9, target.y + target.height/9, target.height*7/9, target.width*7/9);
+    ctx.strokeStyle = "rgb(255, 0, 0)";
+    ctx.fillStyle = "rgb(255, 0, 0)";
+    drawCircle(target.x + target.width*2/9, target.y + target.height*2/9, target.height*5/9, target.width*5/9);
+    ctx.strokeStyle = "rgb(50, 54, 62)";
+    ctx.fillStyle = "rgb(50, 54, 62)";
+    drawCircle(target.x + target.width/3, target.y + target.height/3, target.height/3, target.width/3);
 
     // draw p1's image
     p1.drawImg();
@@ -72,8 +83,8 @@ function draw() {
     clear();
 
     // draw the surrounding rectangle
-    ctx.fillStyle = "white";
-    ctx.strokeStyle = "black";
+    ctx.fillStyle = "rgb(50, 54, 62)";
+    ctx.strokeStyle = "rgb(0, 0, 0)";
     drawRect(0,0,WIDTH,HEIGHT);
 
     if (gameOn == false) {
