@@ -54,8 +54,5 @@ function move() {
 }
 
 function gameOffKeys() {
-    // check if they press the space key
-    if (keysDown[32]) {
-        restart();
-    }
+    
 }

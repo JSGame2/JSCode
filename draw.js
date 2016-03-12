@@ -47,12 +47,19 @@ function drawHomePage() {
     ctx.strokeStyle = "rgb(0, 0, 0)";
     for (var x=restartButton.x; x<restartButton.x + restartButton.width; x+=5) {
         drawRect(x, restartButton.y, 5, 5);
-        drawRect(x, restartButton.y + restartButton.height, 5, 5);
+        drawRect(x, restartButton.y + restartButton.height - 5, 5, 5);
     }
     for (var y=restartButton.y; y<restartButton.y + restartButton.height; y+=5) {
         drawRect(restartButton.x, y, 5, 5);
-        drawRect(restartButton.x + restartButton.width, y, 5, 5);
+        drawRect(restartButton.x + restartButton.width - 5, y, 5, 5);
     }
+
+    ctx.strokeStyle = "rgb(0, 0, 0)";
+    //ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.font = "100px monospace";
+    ctx.strokeText("New Game", WIDTH/2, restartButton.y + restartButton.height/2 - 2.5);
 }
 
 function drawGame() {

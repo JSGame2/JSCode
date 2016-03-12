@@ -8,8 +8,9 @@ var square = 5;
 var board = newBoard();
 var keysDown = [];
 var mousePos = {"x":0, "y":0};
-var restartButton = {"x":100, "y":150, "width":600, "height":200};
+var restartButton = {"x":100, "y":250, "width":600, "height":125};
 var gameOn = true;
+var winner = "p1";
 
 var p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
 var p2 = new player(380, 230, 30, 30, 5, 5, "Icons/Darth-Vader-icon.png");
