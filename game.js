@@ -16,11 +16,19 @@ var p1 = new player(110, 90, 30, 30, 5, 5, "Icons/hero_01.png");
 var p2 = new player(380, 230, 30, 30, 5, 5, "Icons/Darth-Vader-icon.png");
 var target = new player(360, 210, 75, 75, 0, 0, "none");
 
-var homeRestart = new button(100, 300, 600, 100);
+// home page buttons
+var newGameButton = new button(240, 135, 320, 120);
+var colorMode = new button(240, 265, 100, 100);
+var rules = new button(350, 265, 100, 100);
+var creators = new button(460, 265, 100, 100);
+
+// pause page buttons
 var home = new button(295, 145, 100, 100);
 var restart = new button(405, 145, 100, 100);
 var color = new button(295, 255, 100, 100);
 var resume = new button(405, 255, 100, 100);
+
+// game page buttons
 var pause = new button (770, 5, 25, 30);
 
 function newGame() {

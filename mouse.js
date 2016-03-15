@@ -25,8 +25,14 @@ function mousePressed (evt) {
             }
         }
     } else if (page == "home") {
-        if (mouseCollides(homeRestart)) {
+        if (mouseCollides(newGameButton)) {
             newGame();
+        } else if (mouseCollides(colorMode)) {
+            changeBackgroundColor();
+        } else if (mouseCollides(rules)) {
+            window.location = "rules.html";
+        } else if (mouseCollides(creators)) {
+            window.location = "creators.html";
         }
     }
 }

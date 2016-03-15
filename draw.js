@@ -22,10 +22,10 @@ function drawRoundRect(x, y, w, h, r) {
     }
     ctx.beginPath();
     ctx.moveTo(x+r, y);
-    ctx.arcTo(x+w, y,   x+w, y+h, r);
-    ctx.arcTo(x+w, y+h, x,   y+h, r);
-    ctx.arcTo(x,   y+h, x,   y,   r);
-    ctx.arcTo(x,   y,   x+w, y,   r);
+    ctx.arcTo(x+w, y, x+w, y+h, r);
+    ctx.arcTo(x+w, y+h, x, y+h, r);
+    ctx.arcTo(x, y+h, x, y, r);
+    ctx.arcTo(x, y, x+w, y, r);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
@@ -78,42 +78,72 @@ player.prototype.drawImg = function() {
 
 function drawHome() {
     ctx.strokeStyle = "rgb(0, 0, 0)";
-    drawRect(homeRestart.x, homeRestart.y, homeRestart.width, homeRestart.height);
 
-    ctx.strokeStyle = "rgb(0, 0, 0)";
-    //ctx.fillStyle = "red";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.font = "100px monospace";
-    ctx.strokeText("New Game", WIDTH/2, homeRestart.y + homeRestart.height/2);
+    // draw the new game button
+    ctx.fillStyle = "rgb(124, 140, 211)";
+    drawRoundRect(newGameButton.x, newGameButton.y, newGameButton.width, newGameButton.height, 15);
+    drawImage("Icons/buttons/resume.png", newGameButton.x + 135, newGameButton.y + 35, 50, 50);
+
+    // draw the switch-color-mode button
+    ctx.fillStyle = "rgb(253, 196, 62)";
+    drawRoundRect(colorMode.x, colorMode.y, colorMode.width, colorMode.height, 15);
+    if (backgroundColor == "rgb(50, 54, 62)") {
+        drawImage("Icons/buttons/day.png", colorMode.x + 25, colorMode.y + 25, 50, 50);
+    } else {
+        drawImage("Icons/buttons/night.png", colorMode.x + 25, colorMode.y + 25, 50, 50);
+    }
+
+    // draw the rules button
+    ctx.fillStyle = "rgb(233, 107, 107)";
+    drawRoundRect(rules.x, rules.y, rules.width, rules.height, 15);
+    drawImage("Icons/buttons/rules.png", rules.x + 25, rules.y + 25, 50, 50);
+
+    // draw the creators button
+    ctx.fillStyle = "rgb(151, 219, 85)";
+    drawRoundRect(creators.x, creators.y, creators.width, creators.height, 15);
+    drawImage("Icons/buttons/creators.png", creators.x + 25, creators.y + 18, 50, 64);
 }
 
 function drawPause() {
-    //ctx.strokeStyle = "rgb(0, 0, 0)";
+    ctx.strokeStyle = "rgb(0, 0, 0)";
 
     // draw the home button
     ctx.fillStyle = "rgb(222, 110, 95)";
     drawRoundRect(home.x, home.y, home.width, home.height, 15);
-    drawImage("Icons/buttons/home.png", home.x + home.width/4, home.y + home.height/4, home.width/2, home.height/2);
+    drawImage("Icons/buttons/home.png", home.x + 25, home.y + 25, 50, 50);
 
     // draw the restart button
     ctx.fillStyle = "rgb(151, 219, 85)";
     drawRoundRect(restart.x, restart.y, restart.width, restart.height, 15);
-    drawImage("Icons/buttons/restart.png", restart.x + restart.width/4, restart.y + restart.height/4, restart.width/2, restart.height/2);
+    drawImage("Icons/buttons/restart.png", restart.x + 25, restart.y + 25, 50, 50);
 
     // draw the switch-color-mode button
     ctx.fillStyle = "rgb(253, 196, 62)";
     drawRoundRect(color.x, color.y, color.width, color.height, 15);
     if (backgroundColor == "rgb(50, 54, 62)") {
-        drawImage("Icons/buttons/day.png", color.x + color.width/4, color.y + color.height/4, color.width/2, color.height/2);
+        drawImage("Icons/buttons/day.png", color.x + 25, color.y + 25, 50, 50);
     } else {
-        drawImage("Icons/buttons/night.png", color.x + color.width/4, color.y + color.height/4, color.width/2, color.height/2);
+        drawImage("Icons/buttons/night.png", color.x + 25, color.y + 25, 50, 50);
     }
 
     // draw the resume button
     ctx.fillStyle = "rgb(124, 140, 211)";
     drawRoundRect(resume.x, resume.y, resume.width, resume.height, 15);
-    drawImage("Icons/buttons/resume.png", resume.x + resume.width/4, resume.y + resume.height/4, resume.width/2, resume.height/2);
+    drawImage("Icons/buttons/resume.png", resume.x + 25, resume.y + 25, 50, 50);
+
+    // draw the winner, if there is one
+    if (winner != "none") {
+        // draw the winner's box
+        ctx.fillStyle = "rgb(164, 234, 215)";
+        drawRoundRect(300, 25, 200, 70, 15);
+        drawImage("Icons/buttons/winner.png", 345, 35, 50, 50);
+
+        if (winner == "p1") {
+            drawImage(p1.imgSrc, 410, 40, 40, 40);
+        } else {
+            drawImage(p2.imgSrc, 410, 40, 40, 40);
+        }
+    }
 }
 
 function drawGame() {
