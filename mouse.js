@@ -5,17 +5,37 @@ function mouseMoved (evt) {
 }
 
 function mousePressed (evt) {
-    if (!gameOn) {
+    if (page == "game") {
+        if (mouseCollides(pause)) {
+            page = "pause";
+        }
+    } else if (page == "pause") {
         // check to see if the mouse clicked on the new game button
-        if (mouseCollides(restartButton)) {
-            restart();
+        if (mouseCollides(home)) {
+            page = "home";
+        } else if (mouseCollides(restart)) {
+            newGame();
+        } else if (mouseCollides(color)) {
+            changeBackgroundColor();
+        } else if (mouseCollides(resume)) {
+            if (winner == "none") {
+                page = "game";
+            } else {
+                newGame();
+            }
+        }
+    } else if (page == "home") {
+        if (mouseCollides(homeRestart)) {
+            newGame();
         }
     }
 }
 
 function mouseCollides(rect) {
-    if (mousePos.x >= rect.x && mousePos.x < rect.x + rect.width && mousePos.y >= rect.y && mousePos.y < rect.y + rect.height) {
-        return true;
+    if (mousePos.x >= rect.x && mousePos.x <= rect.x + rect.width) {
+        if (mousePos.y >= rect.y && mousePos.y <= rect.y + rect.height) {
+            return true;
+        }
     }
     return false;
 }

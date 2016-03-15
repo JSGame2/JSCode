@@ -52,7 +52,3 @@ function move() {
         p2.canMove_up();
     }
 }
-
-function gameOffKeys() {
-    
-}

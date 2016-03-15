@@ -71,5 +71,9 @@ function newBoard() {
     addCol(board1, 58, 0, 59);
     addRow(board1, 58, 58, 12);
 
+    // create the square for the pause box
+    addRow(board1, 153, 7, 7);
+    addCol(board1, 153, 0, 7);
+
     return board1;
 }

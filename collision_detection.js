@@ -15,8 +15,9 @@ player.prototype.checkWall = function() {
 
 player.prototype.collides = function(p2) {
     if (this.x < p2.x + p2.width && this.x + this.width > p2.x && this.y < p2.y + p2.height && this.height + this.y > p2.y) {
-        gameOn = false;
+        return true;
     }
+    return false;
 }
 
 // find the board squares the player is in
