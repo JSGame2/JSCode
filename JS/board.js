@@ -32,17 +32,8 @@ function newBoard() {
         board1.push(row);
     }
 
-    // add walls around the edges (except in a small number of places)
-    addRow(board1, 0, 0, WIDTH / square);
-    addRow(board1, 0, HEIGHT / square - 1, WIDTH / square);
-    addCol(board1, 0, 0, HEIGHT / square);
-    addCol(board1, WIDTH / square - 1, 0, HEIGHT / square);
-
-    removeCol(board1, 0, (HEIGHT / 2 / square) - 11, 20);
-    removeCol(board1, WIDTH / square - 1, (HEIGHT / 2 / square) - 11 , 20);
-
-    removeRow(board1, 59, 0, 20);
-    removeRow(board1, 59, 99, 20);
+    // draw the surrounding walls with a few holes in them
+    newBoardHoles(board1);
 
     // draw the target box
     addRow(board1, 69, 39, 20);
@@ -76,4 +67,41 @@ function newBoard() {
     addCol(board1, 153, 0, 7);
 
     return board1;
+}
+
+function newBoardHoles(board1) {
+    // add walls around the edges (except in a small number of places)
+    addRow(board1, 0, 0, WIDTH / square);
+    addRow(board1, 0, HEIGHT / square - 1, WIDTH / square);
+    addCol(board1, 0, 0, HEIGHT / square);
+    addCol(board1, WIDTH / square - 1, 0, HEIGHT / square);
+
+    // pick the row and column choice - 0, 1, or 2
+    var rowChoice = Math.floor(Math.random() * 3);
+    var colChoice = Math.floor(Math.random() * 3);
+
+    // remove part of a row
+    if (rowChoice == 0) {
+        removeRow(board1, 9, 0, 20);
+        removeRow(board1, 9, 99, 20);
+    } else if (rowChoice == 1) {
+        removeRow(board1, 59, 0, 20);
+        removeRow(board1, 59, 99, 20);
+    } else {
+        removeRow(board1, 115, 0, 20);
+        removeRow(board1, 115, 99, 20);
+    }
+
+    // remove part of a column
+    if (colChoice == 0) {
+        removeCol(board1, 0, 15, 20);
+        removeCol(board1, 159, 15, 20);
+    } else if (colChoice == 1) {
+        removeCol(board1, 0, 35, 20);
+        removeCol(board1, 159, 35, 20);
+    } else {
+        removeCol(board1, 0, 72, 20);
+        removeCol(board1, 159, 72, 20);
+    }
+
 }

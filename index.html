@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="theme.css">
+		<!--- add the CSS -->
+		<link rel="stylesheet" type="text/css" href="css/index_style.css">
+
+		<!-- add the metas -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
-		<title>CHASE</title>
+
+		<!-- the title -->
+		<title>Chase</title>
 	</head>
+
 	<body>
-		<section>
-			<!-- This div is the canvas -->
-			<div>
-				<center>
-					<h1>CHASE</h1>
-					<canvas id="canvas" width="800" height="500">
-						This text is displayed if your browser does not support HTML5 Canvas.
-					</canvas>
-				</center>
-			</div>
+		<!-- This div is the canvas -->
+		<div id="page_canvas">
+			<center>
+				<h1>Chase</h1>
+				<canvas id="canvas" width="800" height="500">
+					Your browser does not support HTML5 Canvas.
+				</canvas>
+			</center>
+		</div>
 
 
-			<!-- This loads the javascript code -->
-			<script src="player.js"></script>
-			<script src="button.js"></script>
-			<script src="board.js"></script>
-			<script src="collision_detection.js"></script>
-			<script src="draw.js"></script>
-			<script src="move.js"></script>
-			<script src="mouse.js"></script>
-			<script src="game.js"></script>
+		<!-- game code -->
+		<script src="JS/player.js"></script>
+		<script src="JS/button.js"></script>
+		<script src="JS/board.js"></script>
+		<script src="JS/collision_detection.js"></script>
+		<script src="JS/draw.js"></script>
+		<script src="JS/move.js"></script>
+		<script src="JS/mouse.js"></script>
+		<script src="JS/game.js"></script>
 
-		</section>
 	</body>
 </html>

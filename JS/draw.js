@@ -82,26 +82,26 @@ function drawHome() {
     // draw the new game button
     ctx.fillStyle = "rgb(124, 140, 211)";
     drawRoundRect(newGameButton.x, newGameButton.y, newGameButton.width, newGameButton.height, 15);
-    drawImage("Icons/buttons/resume.png", newGameButton.x + 135, newGameButton.y + 35, 50, 50);
+    drawImage("Images/Buttons/resume.png", newGameButton.x + 135, newGameButton.y + 35, 50, 50);
 
     // draw the switch-color-mode button
     ctx.fillStyle = "rgb(253, 196, 62)";
     drawRoundRect(colorMode.x, colorMode.y, colorMode.width, colorMode.height, 15);
     if (backgroundColor == "rgb(50, 54, 62)") {
-        drawImage("Icons/buttons/day.png", colorMode.x + 25, colorMode.y + 25, 50, 50);
+        drawImage("Images/Buttons/day.png", colorMode.x + 25, colorMode.y + 25, 50, 50);
     } else {
-        drawImage("Icons/buttons/night.png", colorMode.x + 25, colorMode.y + 25, 50, 50);
+        drawImage("Images/Buttons/night.png", colorMode.x + 25, colorMode.y + 25, 50, 50);
     }
 
     // draw the rules button
     ctx.fillStyle = "rgb(233, 107, 107)";
     drawRoundRect(rules.x, rules.y, rules.width, rules.height, 15);
-    drawImage("Icons/buttons/rules.png", rules.x + 25, rules.y + 25, 50, 50);
+    drawImage("Images/Buttons/rules.png", rules.x + 25, rules.y + 25, 50, 50);
 
     // draw the creators button
     ctx.fillStyle = "rgb(151, 219, 85)";
     drawRoundRect(creators.x, creators.y, creators.width, creators.height, 15);
-    drawImage("Icons/buttons/creators.png", creators.x + 25, creators.y + 18, 50, 64);
+    drawImage("Images/Buttons/creators.png", creators.x + 25, creators.y + 18, 50, 64);
 }
 
 function drawPause() {
@@ -110,33 +110,33 @@ function drawPause() {
     // draw the home button
     ctx.fillStyle = "rgb(222, 110, 95)";
     drawRoundRect(home.x, home.y, home.width, home.height, 15);
-    drawImage("Icons/buttons/home.png", home.x + 25, home.y + 25, 50, 50);
+    drawImage("Images/Buttons/home.png", home.x + 25, home.y + 25, 50, 50);
 
     // draw the restart button
     ctx.fillStyle = "rgb(151, 219, 85)";
     drawRoundRect(restart.x, restart.y, restart.width, restart.height, 15);
-    drawImage("Icons/buttons/restart.png", restart.x + 25, restart.y + 25, 50, 50);
+    drawImage("Images/Buttons/restart.png", restart.x + 25, restart.y + 25, 50, 50);
 
     // draw the switch-color-mode button
     ctx.fillStyle = "rgb(253, 196, 62)";
     drawRoundRect(color.x, color.y, color.width, color.height, 15);
     if (backgroundColor == "rgb(50, 54, 62)") {
-        drawImage("Icons/buttons/day.png", color.x + 25, color.y + 25, 50, 50);
+        drawImage("Images/Buttons/day.png", color.x + 25, color.y + 25, 50, 50);
     } else {
-        drawImage("Icons/buttons/night.png", color.x + 25, color.y + 25, 50, 50);
+        drawImage("Images/Buttons/night.png", color.x + 25, color.y + 25, 50, 50);
     }
 
     // draw the resume button
     ctx.fillStyle = "rgb(124, 140, 211)";
     drawRoundRect(resume.x, resume.y, resume.width, resume.height, 15);
-    drawImage("Icons/buttons/resume.png", resume.x + 25, resume.y + 25, 50, 50);
+    drawImage("Images/Buttons/resume.png", resume.x + 25, resume.y + 25, 50, 50);
 
     // draw the winner, if there is one
     if (winner != "none") {
         // draw the winner's box
         ctx.fillStyle = "rgb(164, 234, 215)";
         drawRoundRect(300, 25, 200, 70, 15);
-        drawImage("Icons/buttons/winner.png", 345, 35, 50, 50);
+        drawImage("Images/Buttons/winner.png", 345, 35, 50, 50);
 
         if (winner == "p1") {
             drawImage(p1.imgSrc, 410, 40, 40, 40);
@@ -171,7 +171,7 @@ function drawGame() {
     p2.drawImg();
 
     // draw the pause button
-    drawImage("Icons/buttons/pause.png", pause.x, pause.y, pause.width, pause.height);
+    drawImage("Images/Buttons/pause.png", pause.x, pause.y, pause.width, pause.height);
 }
 
 function gameMoves() {
@@ -184,6 +184,15 @@ function gameMoves() {
     } else if (p1.collides(target)) {
         winner = "p1";
         page = "pause";
+    }
+}
+
+// create the timer method that will re-draw the board's holes every ten seconds
+function timer() {
+    time += 10;
+    if (time >= 10000) {
+        newBoardHoles(board);
+        time = 0;
     }
 }
 
@@ -200,6 +209,7 @@ function draw() {
     if (page == "home") {
         drawHome();
     } else if (page == "game"){
+        timer();
         gameMoves();
         drawGame();
     } else {
