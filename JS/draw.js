@@ -172,27 +172,78 @@ function drawGame() {
 
     // draw the pause button
     drawImage("Images/Buttons/pause.png", pause.x, pause.y, pause.width, pause.height);
+
+    // draw all the traps
+    for (var i = 0; i < traps.length; i += 1) {
+        if (traps[i].type == "reverse") {
+            ctx.strokeStyle = "rgb(124, 140, 211)";
+            ctx.fillStyle = "rgb(124, 140, 211)";
+        } else if (traps[i].type == "speedUp") {
+            ctx.strokeStyle = "rgb(151, 219, 85)";
+            ctx.fillStyle = "rgb(151, 219, 85)";
+        } else if (traps[i].type == "slowDown") {
+            ctx.strokeStyle = "rgb(253, 196, 62)";
+            ctx.fillStyle = "rgb(253, 196, 62)";
+        } else if (traps[i].type == "stop") {
+            ctx.strokeStyle = "rgb(222, 110, 95)";
+            ctx.fillStyle = "rgb(222, 110, 95)";
+        }
+
+        drawRect(traps[i].x, traps[i].y, traps[i].width, traps[i].height);
+    }
 }
 
 function gameMoves() {
     // make the characters move
     move()
 
+    // if p1 hits p2
     if (p1.collides(p2)) {
         winner = "p2";
         page = "pause";
+    // if p1 hits the target
     } else if (p1.collides(target)) {
         winner = "p1";
         page = "pause";
-    }
-}
-
-// create the timer method that will re-draw the board's holes every ten seconds
-function timer() {
-    time += 10;
-    if (time >= 10000) {
-        newBoardHoles(board);
-        time = 0;
+    } else {
+        // check if either player hits one of the traps
+        for (var i = 0; i < traps.length; i += 1) {
+            if (p1.collides(traps[i])) {
+                if (traps[i].type == "reverse") {
+                    reverseKeys(p1);
+                } else if (traps[i].type == "speedUp") {
+                    if (p1.xSpeed < 20 && p1.ySpeed < 20) {
+                        p1.xSpeed *= 2;
+                        p1.ySpeed *= 2;
+                    }
+                } else if (traps[i].type == "slowDown") {
+                    if (p1.xSpeed > 1 && p1.ySpeed > 1) {
+                        p1.xSpeed /= 2;
+                        p1.ySpeed /= 2;
+                    }
+                } else if (traps[i].type == "stop") {
+                    p1.waitTime = 2000;
+                }
+                traps[i] = newTrap();
+            } if (p2.collides(traps[i])) {
+                if (traps[i].type == "reverse") {
+                    reverseKeys(p2);
+                } else if (traps[i].type == "speedUp") {
+                    if (p2.xSpeed < 20 && p2.ySpeed < 20) {
+                        p2.xSpeed *= 2;
+                        p2.ySpeed *= 2;
+                    }
+                } else if (traps[i].type == "slowDown") {
+                    if (p2.xSpeed > 1 && p2.ySpeed > 1) {
+                        p2.xSpeed /= 2;
+                        p2.ySpeed /= 2;
+                    }
+                } else if (traps[i].type == "stop") {
+                    p2.waitTime = 2000;
+                }
+                traps[i] = newTrap();
+            }
+        }
     }
 }
 

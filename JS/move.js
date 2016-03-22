@@ -31,24 +31,28 @@ function keyReleased(evt) {
 
 function move() {
     // check movement for p1
-    if (keysDown[68]) { // D key was pressed
-        p1.canMove_right();
-    } if (keysDown[65]) { // A key was pressed
-        p1.canMove_left();
-    } if (keysDown[83]) { // S key was pressed
-        p1.canMove_down();
-    } if (keysDown[87]) { // W key was pressed
-        p1.canMove_up();
+    if (p1.waitTime == 0) {
+        if (keysDown[p1.keyRight]) { // D key was pressed
+            p1.canMove_right();
+        } if (keysDown[p1.keyLeft]) { // A key was pressed
+            p1.canMove_left();
+        } if (keysDown[p1.keyUp]) { // W key was pressed
+            p1.canMove_up();
+        } if (keysDown[p1.keyDown]) { // S key was pressed
+            p1.canMove_down();
+        }
     }
 
     // check movement for p2
-    if (keysDown[39]) { // right arrow was pressed
-        p2.canMove_right();
-    } if (keysDown[37]) { // left arrow was pressed
-        p2.canMove_left();
-    } if (keysDown[40]) { // down arrow was pressed
-        p2.canMove_down();
-    } if (keysDown[38]) { // up arrow was pressed
-        p2.canMove_up();
+    if (p2.waitTime == 0) {
+        if (keysDown[p2.keyRight]) { // right arrow was pressed
+            p2.canMove_right();
+        } if (keysDown[p2.keyLeft]) { // left arrow was pressed
+            p2.canMove_left();
+        } if (keysDown[p2.keyUp]) { // up arrow was pressed
+            p2.canMove_up();
+        } if (keysDown[p2.keyDown]) { // down arrow was pressed
+            p2.canMove_down();
+        }
     }
 }

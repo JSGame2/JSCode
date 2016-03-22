@@ -1,21 +1,23 @@
 //this will draw a ball on the screen
 // Set some global variables
-var canvas;
-var ctx;
-var WIDTH = 800;
-var HEIGHT = 500;
+var canvas; var ctx;
+var WIDTH = 800; var HEIGHT = 500;
+var board;
 var square = 5;
-var board = newBoard();
 var keysDown = [];
 var mousePos = {"x":0, "y":0};
 var page = "home";
-var winner = "none";
 var backgroundColor = "rgb(50, 54, 62)";
-var time = 0;
+var winner;
+var time;
+var traps;
 
-var p1 = new player(110, 90, 30, 30, 5, 5, "Images/Icons/hero_01.png");
-var p2 = new player(380, 230, 30, 30, 5, 5, "Images/Icons/Darth-Vader-icon.png");
-var target = new player(360, 210, 75, 75, 0, 0, "none");
+// players
+var p1;
+var p2;
+
+// the target sign
+var target;
 
 // home page buttons
 var newGameButton = new button(240, 135, 320, 120);
@@ -33,16 +35,38 @@ var resume = new button(405, 255, 100, 100);
 var pause = new button (770, 5, 25, 30);
 
 function newGame() {
-    // create two new players
-    // the players start in different positions, but are the same width and height, and have the same speed
-    p1 = new player(110, 90, 30, 30, 5, 5, "Images/Icons/hero_01.png");
-    p2 = new player(380, 230, 30, 30, 5, 5, "Images/Icons/Darth-Vader-icon.png");
-    target = new player(360, 210, 75, 75, 0, 0, "none");
+    // create the two players
+    p1 = new player(115, 90, 30, 30, 5, 5, "Images/Icons/hero_01.png", 68, 65, 87, 83, 0);
+    p2 = new player(380, 230, 30, 30, 5, 5, "Images/Icons/Darth-Vader-icon.png", 39, 37, 38, 40, 0);
+
+    // create the target sign's position and size
+    target = new button(360, 210, 75, 75);
 
     board = newBoard();
     page = "game";
     winner = "none";
     time = 0;
+    traps = [];
+}
+
+// create the timer method that will run methods every ten seconds
+function timer() {
+    time += 10;
+    if (time % 10000 == 0) {
+        time = 0;
+        // change the holes in the board
+        newBoardHoles(board);
+        // change the two traps
+        traps = [newTrap(), newTrap()];
+    }
+
+    // check the players' wait time
+    if (p1.waitTime > 0) {
+        p1.waitTime -= 10;
+    }
+    if (p2.waitTime > 0) {
+        p2.waitTime -= 10;
+    }
 }
 
 // Important starting function

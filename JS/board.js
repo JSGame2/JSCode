@@ -39,28 +39,28 @@ function newBoard() {
     addRow(board1, 69, 39, 20);
     addCol(board1, 89, 39, 20);
 
-    // block the gaps in the edges, sort of
-    addCol(board1, 30, 15, 50);
-    addCol(board1, 20, 15, 40);
-    addRow(board1, 20, 15, 10);
-    addCol(board1, 10, 15, 50);
-    addRow(board1, 0, 64, 30);
-    addCol(board1, 145, 10, 80);
+    // draw the maze around p1
+    addCol(board1, 31, 15, 50);
+    addCol(board1, 21, 15, 40);
+    addRow(board1, 21, 15, 10);
+    addCol(board1, 11, 15, 50);
+    addRow(board1, 0, 65, 32);
+    addCol(board1, 145, 11, 80);
 
     // others
     addRow(board1, 11, 89, 50);
-    addCol(board1, 20, 77, 12);
+    addCol(board1, 21, 77, 12);
     addRow(board1, 85, 89, 50);
     addCol(board1, 95, 89, 10);
     addRow(board1, 45, 75, 69);
     addCol(board1, 45, 45, 30);
     addCol(board1, 113, 45, 30);
-    addRow(board1, 95, 10, 50);
+    addRow(board1, 95, 11, 50);
     addCol(board1, 85, 0, 22);
     addRow(board1, 95, 21, 40);
-    addCol(board1, 134, 21, 55);
-    addCol(board1, 58, 0, 59);
-    addRow(board1, 58, 58, 12);
+    addCol(board1, 135, 21, 55);
+    addCol(board1, 59, 0, 59);
+    addRow(board1, 59, 59, 12);
 
     // create the square for the pause box
     addRow(board1, 153, 7, 7);
