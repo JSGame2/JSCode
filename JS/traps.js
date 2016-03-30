@@ -10,12 +10,12 @@ function trap(type, x, y, width, height) {
 trap.prototype.freeSpace = function() {
     var x_tiles = [];
 
-    for (var i = Math.floor(this.x / square); i < Math.floor((this.x + this.width) / square); i ++) {
+    for (var i = Math.floor(this.x / square) - 1; i < Math.floor((this.x + this.width) / square + 1); i ++) {
         x_tiles.push(i);
     }
 
     var y_tiles = [];
-    for (var i = Math.floor(this.y / square); i < Math.floor((this.y + this.height) / square); i ++) {
+    for (var i = Math.floor(this.y / square) - 1; i < Math.floor((this.y + this.height) / square + 1); i ++) {
         y_tiles.push(i);
     }
 
@@ -42,20 +42,24 @@ function newTrap() {
         type = "stop";
     }
 
-    // pick a random x and y position that is a multiple of 5
-    var xPos = Math.floor(Math.random() * 155 + 1) * 5;
-    var yPos = Math.floor(Math.random() * 95 + 1) * 5;
+    do {
+        // pick a random x and y position that is a multiple of 5
+        var xPos = Math.floor(Math.random() * 155 + 1) * 5;
+        var yPos = Math.floor(Math.random() * 95 + 1) * 5;
 
-    // create a new trap with those coordinates
-    var newTrap = new trap(type, xPos, yPos, 20, 20);
+        // create a new trap with those coordinates
+        var newTrap = new trap(type, xPos, yPos, 20, 20);
 
-    while (!newTrap.freeSpace()) {
-        xPos = Math.floor(Math.random() * 151 + 1) * 5;
-        yPos = Math.floor(Math.random() * 91 + 1) * 5;
-        newTrap = new trap(type, xPos, yPos, 20, 20);
-    }
+    } while (!newTrap.freeSpace() || newTrap.collides(target) || newTrap.collides(p1) || newTrap.collides(p2));
 
     return newTrap;
+}
+
+trap.prototype.collides = function (trap2) {
+    if (this.x < trap2.x + trap2.width && this.x + this.width > trap2.x && this.y < trap2.y + trap2.height && this.height + this.y > trap2.y) {
+        return true;
+    }
+    return false;
 }
 
 function reverseKeys(player) {
@@ -64,4 +68,22 @@ function reverseKeys(player) {
     player.keyLeft = newKeys[3];
     player.keyUp = newKeys[1];
     player.keyDown = newKeys[2];
+}
+
+function speedUp(player) {
+    if (player.xSpeed < 10 && player.ySpeed < 10) {
+        player.xSpeed *= 2;
+        player.ySpeed *= 2;
+    }
+}
+
+function slowDown(player) {
+    if (player.xSpeed > 2 && player.ySpeed > 2) {
+        player.xSpeed /= 2;
+        player.ySpeed /= 2;
+    }
+}
+
+function stop(player) {
+    player.waitTime = 2000;
 }

@@ -57,7 +57,7 @@ function timer() {
         // change the holes in the board
         newBoardHoles(board);
         // change the two traps
-        traps = [newTrap(), newTrap()];
+        traps = [newTrap(), newTrap(), newTrap(), newTrap()];
     }
 
     // check the players' wait time

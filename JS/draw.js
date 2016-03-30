@@ -212,34 +212,22 @@ function gameMoves() {
                 if (traps[i].type == "reverse") {
                     reverseKeys(p1);
                 } else if (traps[i].type == "speedUp") {
-                    if (p1.xSpeed < 20 && p1.ySpeed < 20) {
-                        p1.xSpeed *= 2;
-                        p1.ySpeed *= 2;
-                    }
+                    speedUp(p1);
                 } else if (traps[i].type == "slowDown") {
-                    if (p1.xSpeed > 1 && p1.ySpeed > 1) {
-                        p1.xSpeed /= 2;
-                        p1.ySpeed /= 2;
-                    }
+                    slowDown(p1);
                 } else if (traps[i].type == "stop") {
-                    p1.waitTime = 2000;
+                    stop(p1);
                 }
                 traps[i] = newTrap();
             } if (p2.collides(traps[i])) {
                 if (traps[i].type == "reverse") {
                     reverseKeys(p2);
                 } else if (traps[i].type == "speedUp") {
-                    if (p2.xSpeed < 20 && p2.ySpeed < 20) {
-                        p2.xSpeed *= 2;
-                        p2.ySpeed *= 2;
-                    }
+                    speedUp(p2);
                 } else if (traps[i].type == "slowDown") {
-                    if (p2.xSpeed > 1 && p2.ySpeed > 1) {
-                        p2.xSpeed /= 2;
-                        p2.ySpeed /= 2;
-                    }
+                    slowDown(p2);
                 } else if (traps[i].type == "stop") {
-                    p2.waitTime = 2000;
+                    stop(p2);
                 }
                 traps[i] = newTrap();
             }

@@ -24,12 +24,12 @@ player.prototype.collides = function(p2) {
 player.prototype.freeSpace = function() {
     var x_tiles = [];
 
-    for (var i = Math.floor(this.x / square); i < Math.floor((this.x + this.width) / square); i ++) {
+    for (var i = Math.floor(this.x / square) - 1; i < Math.floor((this.x + this.width) / square) + 1; i ++) {
         x_tiles.push(i);
     }
 
     var y_tiles = [];
-    for (var i = Math.floor(this.y / square); i < Math.floor((this.y + this.height) / square); i ++) {
+    for (var i = Math.floor(this.y / square) - 1; i < Math.floor((this.y + this.height) / square) + 1; i ++) {
         y_tiles.push(i);
     }
 
