@@ -71,16 +71,16 @@ function reverseKeys(player) {
 }
 
 function speedUp(player) {
-    if (player.xSpeed < 10 && player.ySpeed < 10) {
-        player.xSpeed *= 2;
-        player.ySpeed *= 2;
+    if (player.xSpeed < 8 && player.ySpeed < 8) {
+        player.xSpeed += 2;
+        player.ySpeed += 2;
     }
 }
 
 function slowDown(player) {
     if (player.xSpeed > 2 && player.ySpeed > 2) {
-        player.xSpeed /= 2;
-        player.ySpeed /= 2;
+        player.xSpeed -= 2;
+        player.ySpeed -= 2;
     }
 }
 
