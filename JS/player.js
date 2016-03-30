@@ -2,7 +2,7 @@
 
 // this function acts like a class
 // you can say var p1 = new Player(parameters); to create a new "instance" of it
-function player(x, y, width, height, xSpeed, ySpeed, imgSrc, keyRight, keyLeft, keyUp, keyDown, waitTime) {
+function player(x, y, width, height, xSpeed, ySpeed, imgSrc, keyRight, keyLeft, keyUp, keyDown, waitTime, update) {
     // create its x and y positions
     this.x = x;
     this.y = y;
@@ -26,4 +26,6 @@ function player(x, y, width, height, xSpeed, ySpeed, imgSrc, keyRight, keyLeft, 
 
     // set up the players wait time
     this.waitTime = waitTime;
+
+    this.update = update;
 }
