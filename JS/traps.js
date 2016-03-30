@@ -9,13 +9,12 @@ function trap(type, x, y, width, height) {
 // find the board squares the player is in
 trap.prototype.freeSpace = function() {
     var x_tiles = [];
-
-    for (var i = Math.floor(this.x / square); i < Math.floor((this.x + this.width) / square); i ++) {
+    for (var i = Math.floor(this.x/square); i < Math.ceil((this.x + this.width)/square); i ++) {
         x_tiles.push(i);
     }
 
     var y_tiles = [];
-    for (var i = Math.floor(this.y / square); i < Math.floor((this.y + this.height) / square); i ++) {
+    for (var i = Math.floor(this.y/square); i < Math.ceil((this.y + this.height)/square); i ++) {
         y_tiles.push(i);
     }
 
