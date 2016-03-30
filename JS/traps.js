@@ -10,12 +10,12 @@ function trap(type, x, y, width, height) {
 trap.prototype.freeSpace = function() {
     var x_tiles = [];
 
-    for (var i = Math.floor(this.x / square) - 1; i < Math.floor((this.x + this.width) / square + 1); i ++) {
+    for (var i = Math.floor(this.x / square); i < Math.floor((this.x + this.width) / square); i ++) {
         x_tiles.push(i);
     }
 
     var y_tiles = [];
-    for (var i = Math.floor(this.y / square) - 1; i < Math.floor((this.y + this.height) / square + 1); i ++) {
+    for (var i = Math.floor(this.y / square); i < Math.floor((this.y + this.height) / square); i ++) {
         y_tiles.push(i);
     }
 
