@@ -27,6 +27,7 @@ function keyPressed(evt) {
 
 function keyReleased(evt) {
     keysDown[evt.keyCode] = false;
+    p1.imgSrc = "Images/Icons/GoodGuy_01_down_2.png"
 }
 
 function move() {
@@ -34,12 +35,52 @@ function move() {
     if (p1.waitTime == 0) {
         if (keysDown[p1.keyRight]) { // D key was pressed
             p1.canMove_right();
+            if (p1.imgSrc == "Images/Icons/GoodGuy_01 _right_2.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01 _right_1.png";
+            }
+            else if (p1.imgSrc == "Images/Icons/GoodGuy_01 _right_1.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01 _right_3.png";
+            }
+            else {
+              p1.imgSrc = "Images/Icons/GoodGuy_01 _right_2.png";
+            }
+
         } if (keysDown[p1.keyLeft]) { // A key was pressed
             p1.canMove_left();
+            if (p1.imgSrc == "Images/Icons/GoodGuy_01_left_2.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_left_1.png";
+            }
+            else if (p1.imgSrc == "Images/Icons/GoodGuy_01_left_1.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_left_3.png";
+            }
+            else {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_left_2.png";
+            }
+
         } if (keysDown[p1.keyUp]) { // W key was pressed
             p1.canMove_up();
+            if (p1.imgSrc == "Images/Icons/GoodGuy_01_up_2.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_up_1.png";
+            }
+            else if (p1.imgSrc == "Images/Icons/GoodGuy_01_up_1.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_up_3.png";
+            }
+            else {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_up_2.png";
+            }
+
         } if (keysDown[p1.keyDown]) { // S key was pressed
             p1.canMove_down();
+            if (p1.imgSrc == "Images/Icons/GoodGuy_01_down_2.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_down_1.png";
+            }
+            else if (p1.imgSrc == "Images/Icons/GoodGuy_01_down_1.png") {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_down_3.png";
+            }
+            else {
+              p1.imgSrc = "Images/Icons/GoodGuy_01_down_2.png";
+            }
+
         }
     }
 
@@ -53,6 +94,7 @@ function move() {
             p2.canMove_up();
         } if (keysDown[p2.keyDown]) { // down arrow was pressed
             p2.canMove_down();
+
         }
     }
 }
