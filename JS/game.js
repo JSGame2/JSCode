@@ -36,11 +36,8 @@ var pause = new button (770, 5, 25, 30);
 
 function newGame() {
     // create the two players
-<<<<<<< HEAD
     p1 = new player(115, 90, 30, 30, 5, 5, "Images/Icons/GoodGuy_01_down_2.png", 68, 65, 87, 83, 0);
-=======
-    p1 = new player(115, 90, 30, 30, 5, 5, "Images/Icons/Leia-icon.png", 68, 65, 87, 83, 0);
->>>>>>> origin/master
+
     p2 = new player(380, 230, 30, 30, 5, 5, "Images/Icons/Darth-Vader-icon.png", 39, 37, 38, 40, 0);
 
     // create the target sign's position and size
