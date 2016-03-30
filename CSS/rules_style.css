@@ -1,0 +1,18 @@
+body {
+    background-color: #D0E4FE;
+}
+
+h1 {
+    font-size: 70px;
+    color: orange;
+    text-align: center;
+}
+
+p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+}
+
+a {
+    color: hotpink;
+}
