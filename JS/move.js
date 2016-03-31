@@ -27,7 +27,12 @@ function keyPressed(evt) {
 
 function keyReleased(evt) {
     keysDown[evt.keyCode] = false;
-    p1.imgSrc = "Images/Icons/GoodGuy_01_down_2.png";
+    if (keysDown[evt.keyCode] == false){
+      p1.imgSrc = "Images/Icons/GoodGuy_01_down_2.png";
+    }
+    if (keysDown[evt.keyCode] == false){
+      p2.imgSrc = "Images/Icons/BadGuy_01_down_2.png";
+    }
 }
 
 function move() {
@@ -104,12 +109,64 @@ function move() {
     if (p2.waitTime == 0) {
         if (keysDown[p2.keyRight]) { // right arrow was pressed
             p2.canMove_right();
+            p2.update += 1;
+            if (p2.imgSrc == "Images/Icons/BadGuy_01_right_2.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_right_1.png";
+              p2.update = 0;
+            }
+            else if (p2.imgSrc == "Images/Icons/BadGuy_01 _right_1.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_right_3.png";
+              p2.update = 0;
+            }
+            else if (p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_right_2.png";
+              p2.update = 0;
+            }
         } if (keysDown[p2.keyLeft]) { // left arrow was pressed
             p2.canMove_left();
+            p2.update += 1;
+            if (p2.imgSrc == "Images/Icons/BadGuy_01_left_2.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_left_1.png";
+              p2.update = 0;
+            }
+            else if (p2.imgSrc == "Images/Icons/BadGuy_01_left_1.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_left_3.png";
+              p2.update = 0;
+            }
+            else if (p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_left_2.png";
+              p2.update = 0;
+            }
         } if (keysDown[p2.keyUp]) { // up arrow was pressed
             p2.canMove_up();
+            p2.update += 1;
+            if (p2.imgSrc == "Images/Icons/BadGuy_01_up_2.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_up_1.png";
+              p2.update = 0;
+            }
+            else if (p2.imgSrc == "Images/Icons/BadGuy_01_up_1.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_up_3.png";
+              p2.update = 0;
+            }
+            else if (p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_up_2.png";
+              p2.update = 0;
+            }
         } if (keysDown[p2.keyDown]) { // down arrow was pressed
             p2.canMove_down();
+            p2.update += 1;
+            if (p2.imgSrc == "Images/Icons/BadGuy_01_down_2.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_down_1.png";
+              p2.update = 0;
+            }
+            else if (p2.imgSrc == "Images/Icons/BadGuy_01_down_1.png" && p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_down_3.png";
+              p2.update = 0;
+            }
+            else if (p2.update > 7) {
+              p2.imgSrc = "Images/Icons/BadGuy_01_down_2.png";
+              p2.update = 0;
+            }
 
         }
     }

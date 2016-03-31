@@ -38,7 +38,7 @@ function newGame() {
     // create the two players
     p1 = new player(115, 90, 30, 30, 5, 5, "Images/Icons/GoodGuy_01_down_2.png", 68, 65, 87, 83, 0, 0);
 
-    p2 = new player(380, 230, 30, 30, 5, 5, "Images/Icons/Darth-Vader-icon.png", 39, 37, 38, 40, 0, 0);
+    p2 = new player(380, 230, 30, 30, 5, 5, "Images/Icons/BadGuy_01_down_2.png", 39, 37, 38, 40, 0, 0);
 
     // create the target sign's position and size
     target = new button(360, 210, 75, 75);
