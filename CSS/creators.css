@@ -25,14 +25,6 @@ p {
     margin-left: 100px;
 
 }
-<<<<<<< Updated upstream
-=======
-h3 {
-
-  font-family: "Arial", Arial, serif;
-  font-size: 14px;
-  margin-left: 360px;
->>>>>>> Stashed changes
 
 a:link {
     font-family: "Arial", Arial, serif;
@@ -55,43 +47,9 @@ a:active {
     color: silver;
 }
 
-<<<<<<< Updated upstream
 div.link {
     padding-right: 10%;
     padding-left: 10%;
     display: table-cell;
     vertical-align: middle;
-=======
-a {
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-bottom: 0.05%;
-  padding-top: 2%;
-  position: relative;
-
-}
-
-h4 {
-
-  font-family: "Arial", Arial, serif;
-  font-size: 14px;
-  margin-left: 510px;
-  position: relative;
-}
-
-h5 {
-
-  font-family: "Arial", Arial, serif;
-  font-size: 14px;
-  margin-left: 660px;
-  position: relative;
-}
-h6 {
-
-  font-family: "Arial", Arial, serif;
-  font-size: 14px;
-  margin-left: 810px;
-  position: relative;
-
->>>>>>> Stashed changes
 }
