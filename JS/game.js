@@ -47,7 +47,7 @@ function newGame() {
     page = "game";
     winner = "none";
     time = 0;
-    traps = [];
+    traps = [newTrap(), newTrap(), newTrap(), newTrap()];
 }
 
 // create the timer method that will run methods every ten seconds

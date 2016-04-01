@@ -148,7 +148,12 @@ function drawPause() {
 
 function drawGame() {
     // draw the walls from the board
-    ctx.strokeStyle = "rgb(0, 0, 0)";
+    if (backgroundColor == "rgb(50, 54, 62)") {
+        ctx.strokeStyle = "rgb(0, 0, 0)";
+    } else {
+        ctx.strokeStyle = "rgb(124, 140, 211)";
+    }
+
     drawBoard();
 
     // draw the target
@@ -188,8 +193,8 @@ function drawGame() {
             ctx.strokeStyle = "rgb(222, 110, 95)";
             ctx.fillStyle = "rgb(222, 110, 95)";
         }
-
-        drawRect(traps[i].x, traps[i].y, traps[i].width, traps[i].height);
+        // draw the circles as traps
+        drawRoundRect(traps[i].x, traps[i].y, traps[i].width, traps[i].height, 5);
     }
 }
 
