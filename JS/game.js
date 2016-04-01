@@ -47,7 +47,7 @@ function newGame() {
     page = "game";
     winner = "none";
     time = 0;
-    traps = [newTrap(), newTrap(), newTrap(), newTrap()];
+    traps = [newTrap(), newTrap(), newTrap()];
 }
 
 // create the timer method that will run methods every ten seconds
@@ -58,7 +58,7 @@ function timer() {
         // change the holes in the board
         newBoardHoles(board);
         // change the two traps
-        traps = [newTrap(), newTrap(), newTrap(), newTrap()];
+        traps = [newTrap(), newTrap(), newTrap()];
     }
 
     // check the players' wait time
