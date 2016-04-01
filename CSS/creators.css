@@ -25,9 +25,7 @@ p {
     margin-left: 100px;
 
 }
-p2 {
 
-}
 a:link {
     font-family: "Arial", Arial, serif;
     font-size: 30px;
@@ -49,7 +47,9 @@ a:active {
     color: silver;
 }
 
-img {
-    padding-left: 5%;
-    padding-right: 5%;
+div.link {
+    padding-right: 10%;
+    padding-left: 10%;
+    display: table-cell;
+    vertical-align: middle;
 }
