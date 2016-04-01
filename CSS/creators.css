@@ -1,0 +1,50 @@
+body {
+    background-color: #FFD700;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: "Arial", Arial, serif;
+    border-style: dashed;;
+    border-color: black
+}
+
+h2 {
+    font-size: 30px;
+    font-family: "Arial", Arial, serif;
+    border-style: dashed;
+    border-color: black
+
+}
+
+p {
+    font-family: "Arial", Arial, serif;
+    font-size: 14px;
+    font-weight: normal;
+    margin-right: 100px;
+    margin-left: 100px;
+
+}
+p2 {
+
+}
+a:link {
+    font-family: "Arial", Arial, serif;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: silver;
+}
