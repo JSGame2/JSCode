@@ -149,7 +149,7 @@ function drawPause() {
 function drawGame() {
     // draw the walls from the board
     if (backgroundColor == "rgb(50, 54, 62)") {
-        ctx.strokeStyle = "rgb(0, 0, 0)";
+        ctx.strokeStyle = "rgb(255, 75, 75)";
     } else {
         ctx.strokeStyle = "rgb(124, 140, 211)";
     }
